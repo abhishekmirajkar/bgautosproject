@@ -1,0 +1,30 @@
+{% extends static/css/admin-extra.css %}
+{% extends static/admin/css/base.css %}
+
+/* body{background: #cccccc;} */
+
+#header{
+  background: #000000;
+}
+#p1{
+  height: 30px;
+  width: 35px;
+  padding-top: -20px;
+  padding-bottom: 25px;
+  margin-top: -30px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.content-main{
+  background:  #000000;
+}
+
+#branding a{
+  padding-left: 15px;
+}
+a .section{
+  background: #000000;
+}
+.breadcrumbs{
+  background: #000000;
+}

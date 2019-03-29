@@ -1,0 +1,5 @@
+{% extends static/admin/css/base.css %}
+
+.section{
+  background: #000000;
+}
