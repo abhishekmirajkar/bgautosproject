@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <style media="screen">
+    .footer-distributed{
+      background-color: #292c2f;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      box-sizing: border-box;
+      width: 100%;
+      text-align: left;
+      font: bold 16px sans-serif;
+
+      padding: 55px 50px;
+      margin-top: 80px;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    /* Footer left */
+
+    .footer-distributed .footer-left{
+      width: 40%;
+    }
+
+    /* The company logo */
+
+    .footer-distributed h3{
+      color:  #ffffff;
+      font: normal 36px 'Cookie', cursive;
+      margin: 0;
+    }
+
+    .footer-distributed h3 span{
+      color:  #5383d3;
+    }
+
+    /* Footer links */
+
+    .footer-distributed .footer-links{
+      color:  #ffffff;
+      margin: 20px 0 12px;
+      padding: 0;
+    }
+
+    .footer-distributed .footer-links a{
+      display:inline-block;
+      line-height: 1.8;
+      text-decoration: none;
+      color:  inherit;
+    }
+
+    .footer-distributed .footer-company-name{
+      color:  #8f9296;
+      font-size: 14px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    /* Footer Center */
+
+    .footer-distributed .footer-center{
+      width: 35%;
+    }
+
+    .footer-distributed .footer-center i{
+      background-color:  #33383b;
+      color: #ffffff;
+      font-size: 25px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 42px;
+      margin: 10px 15px;
+      vertical-align: middle;
+    }
+
+    .footer-distributed .footer-center i.fa-envelope{
+      font-size: 17px;
+      line-height: 38px;
+    }
+
+    .footer-distributed .footer-center p{
+      display: inline-block;
+      color: #ffffff;
+      vertical-align: middle;
+      margin:0;
+    }
+
+    .footer-distributed .footer-center p span{
+      display:block;
+      font-weight: normal;
+      font-size:14px;
+      line-height:2;
+    }
+
+    .footer-distributed .footer-center p a{
+      color:  #5383d3;
+      text-decoration: none;;
+    }
+
+
+    /* Footer Right */
+
+    .footer-distributed .footer-right{
+      width: 20%;
+    }
+
+    .footer-distributed .footer-company-about{
+      line-height: 20px;
+      color:  #92999f;
+      font-size: 13px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .footer-distributed .footer-company-about span{
+      display: block;
+      color:  #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .footer-distributed .footer-icons{
+      margin-top: 25px;
+    }
+
+    /* If you don't want the footer to be responsive, remove these media queries */
+
+    @media (max-width: 880px) {
+
+      .footer-distributed{
+        font: bold 14px sans-serif;
+      }
+
+      .footer-distributed .footer-left,
+      .footer-distributed .footer-center,
+      .footer-distributed .footer-right{
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .footer-distributed .footer-center i{
+        margin-left: 0;
+      }
+
+
+    }
+
+    </style>
+
+    <style >
+          .carousel-control-prev,
+          .carousel-control-next
+          {
+          top: auto;
+          bottom: auto;
+          margin-top: -140px;
+          }
+
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon{
+          background-color: blue;
+          padding-bottom: 60px;
+          }
+
+
+    </style>
+   </head>
+  <body>
+    {% load static %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="navlogo" class="navbar-brand" href="/shopping/" style="font-family: 'Oswald', sans-serif;" >
+        <img src="{% static "images\bglogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="image unavailables">
+        BG AUTOS
+      </a>
+    <ul class="navbar-nav mr-auto ">
+
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/shopping/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/tracker/">Tracking <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="/invoice/">Invoice <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/contact/">Contact  Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/accounts">Account</a>
+              <a class="dropdown-item" href="#">Orders</a>
+              <div class="dropdown-divider"></div>
+              <form method="POST" action="/logout">
+                  <div class="container mx-2">
+                    {% csrf_token %}
+                    <button type="submit" value="Logout" class="btn btn-danger align-center">Logout</button>
+
+                  </div>
+
+              </form></a>
+            </div>
+          </li>
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+      <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+    sagittis lacus vel augue laoreet rutrum faucibus.">
+
+
+      Cart(<span id="cart">0</span>)
+    </button>
+    </nav>
+
+
+
+    <div class="container my-5">
+      <div class="row">
+
+           <div class="col-md-4">
+              <div class="row">
+
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                  <!-- Indicators -->
+                  <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+
+                  <!-- The slideshow -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="/media/{{prod.productimage1}}" width="233px" height="385px" alt="{{prod.producttitle}}">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/media/{{prod.productimage2}}" width="233px" height="385px" alt="{{prod.producttitle}}">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/media/{{prod.productimage3}}" width="233px" height="385px" alt="{{prod.producttitle}}">
+                    </div>
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
+
+                </div>
+
+              </div>
+                <br></br>
+                <div class="row">
+                  <!-- <button class="btn btn-primary mx-2 ">Buy Now</button> -->
+                  <span id="divpr{{prod.productid}}" class="divpr">
+                  <button id="pr{{prod.productid}}" class="btn btn-primary cart">Add To Cart</button>
+                  </span>
+
+                  <!-- <span id="divpr{{prod.productid}}" class="divpr">
+                  <button style="width:320px" type="button" class="btn btn-primary">Buy Now</button>
+                  </span> -->
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
+              <h4 class="name" id="namepr{{prod.productid}}">{{prod.producttitle}}</h4>
+              <!-- <h4>By</h4> -->
+              <div class="row mx-1">
+                <h5>Rs. </h5>
+                <h5 id="price">{{prod.productprice}}</h5>
+                <p id="pid">{{prod.productid}}</p>
+
+              </div>
+              <p>Brand : {{prod.brandname}}</p>
+              <p>Color : {{prod.productcolor}}</p>
+              <p>Description :{{prod.productdesc}}</p>
+
+
+
+
+                      <form method="post">
+                          {% csrf_token %}
+                          {{ comment_form.as_p }}
+                          <input type="submit" value="submit" class="btn btn-outline-success">
+                      </form>
+                      <div class="main-comment-section">
+
+                        {{ comments.count }} Comment{{ comments|pluralize}}
+
+                        {% for comment in comments %}
+
+
+                        <blockquote class="blockquote">
+                              <p class="mb-0">{{ comment.content }}</p>
+                              <p>______________________________________</p>
+                        </blockquote>
+                        {% endfor %}
+
+                      </div>
+
+
+            </div>
+        </div>
+
+
+                <br><br>
+                <hr>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+// Find out the cart items from localStorage
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+
+}
+// If the add to cart button is clicked, add/increment the item
+$('.divpr').on('click', 'button.cart', function(){
+    var idstr = this.id.toString();
+    console.log("IDSTR");
+    console.log(idstr);
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+    } else {
+         qty = 1;
+         name = document.getElementById('name'+idstr).innerHTML;
+         price = document.getElementById('price').innerHTML ;
+         cart[idstr] =[qty,name,price];
+    }
+    updateCart(cart);
+
+});
+//Add Popover to cart
+$('#popcart').popover();
+updatePopover(cart);
+function updatePopover(cart)
+{
+    console.log('We are inside updatePopover');
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+
+      items = document.getElementById('pid').innerHTML
+      for (var item in cart){
+        // if ("pr"+items == item){
+
+          popStr = popStr + "<b>" + i + "</b>. ";
+          // popStr = popStr + document.getElementById('name'+item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+          popStr = popStr + cart[item][1] + "... Qty: " + cart[item][0] + '<br>';
+
+          i = i+1;
+
+          console.log(item);
+        // }
+
+      }
+    popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+}
+
+    function clearCart()
+     {
+         cart = JSON.parse(localStorage.getItem('cart'));
+         items = document.getElementById('pid').innerHTML
+
+         for (var item in cart) {
+           if ("pr"+items == item){
+           document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
+           }
+         }
+         localStorage.clear();
+         cart = {};
+         updateCart(cart);
+     }
+
+function updateCart(cart) {
+  console.log(cart);
+    items = document.getElementById('pid').innerHTML
+    for (var item in cart) {
+      if ("pr"+items == item){
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+      }
+     }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    console.log(cart);
+    updatePopover(cart);
+}
+// If plus or minus button is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a][0] = cart['pr' + a][0] - 1;
+    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+    // document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    if (cart['pr'+a][0] == 0)
+    {
+      document.getElementById('divpr' + a).innerHTML= '<button id="pr'+ a +'" class="btn btn-primary cart"> Add to Cart</button>';
+      delete cart['pr'+a];
+    }
+    else {
+      document.getElementById('valpr' + a).innerHTML = cart['pr'+a][0];
+    }
+    updateCart(cart);
+});
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a][0] = cart['pr' + a][0] + 1;
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    updateCart(cart);
+});
+
+
+</script>
+
+
+
+
+
+
+<!--
+<script>
+
+
+function reload() {
+  window.location.reload()
+}
+
+
+
+// Find out the cart items from localStorage
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+}
+// If the add to cart button is clicked, add/increment the item
+$('.divpr').on('click', 'button.cart', function(){
+    var idstr = this.id.toString();
+    console.log("IDSTR");
+    console.log(idstr);
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+    } else {
+         qty = 1;
+         name = document.getElementById('name'+idstr).innerHTML;
+         price = document.getElementById('price').innerHTML ;
+         cart[idstr] =[qty,name,price];
+    }
+    updateCart(cart);
+
+});
+//Add Popover to cart
+$('#popcart').popover();
+updatePopover(cart);
+function updatePopover(cart)
+{
+    console.log('We are inside updatePopover');
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart){
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + $(".namepr" + item).html("... Qty:"  + cart[item][0] + "'<br>'");
+        i = i+1;
+        console.log(popStr);
+    }
+    popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+}
+
+    function clearCart()
+     {
+         cart = JSON.parse(localStorage.getItem('cart'));
+         for (var item in cart) {
+           document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
+         }
+         localStorage.clear();
+         cart = {};
+         updateCart(cart);
+     }
+
+function updateCart(cart) {
+  console.log(cart);
+    for (var item in cart) {
+      $(".divpr" + item).html("<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>");
+
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    console.log(cart);
+    updatePopover(cart);
+}
+// If plus or minus button is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a][0] = cart['pr' + a][0] - 1;
+    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+    // document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    if (cart['pr'+a][0] == 0)
+    {
+      document.getElementById('divpr' + a).innerHTML= '<button id="pr'+ a +'" class="btn btn-primary cart"> Add to Cart</button>';
+      delete cart['pr'+a];
+    }
+    else {
+      document.getElementById('valpr' + a).innerHTML = cart['pr'+a][0];
+    }
+    updateCart(cart);
+});
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a][0] = cart['pr' + a][0] + 1;
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    updateCart(cart);
+});
+</script> -->
+
+
+
+
+
+    		<footer class="footer-distributed" >
+
+    			<div class="footer-left">
+              <h3 style="font-family: 'Oswald', sans-serif;" >BG AUTOS</h3>
+
+
+    				<p class="footer-links">
+    					<a href="/shopping/">Home</a>
+    					·
+    					<a href="/tracker/">Tracking</a>
+    					·
+    					<a href="/invoice/">Invoice</a>
+
+    				</p>
+
+    				<p class="footer-company-name">BGAUTOS &copy; 2019</p>
+    			</div>
+
+    			<div class="footer-center">
+
+    				<div>
+    					<i class="fa fa-map-marker"></i>
+    					<p><span>Anand Arcade, Maratha Colony Road, Shivaji Circle, </span>Maratha Colony, Dharwad - 580008, Opp.KVG Bank</p>
+    				</div>
+
+
+
+
+
+    			</div>
+
+    			<div class="footer-right">
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+918362746580</p>
+
+            </div>
+
+
+
+                        				<div>
+                        					<i class="fa fa-phone"></i>
+                        					<p>+919964329454</p>
+
+                        				</div>
+
+                                <div>
+                        					<i class="fa fa-envelope"></i>
+                        					<p><a href="mailto:support@company.com">bgautos0@gmail.com</a></p>
+                        				</div>
+
+
+    			</div>
+    			<div class="container " style="" >
+
+    				<iframe frameborder="0" style="border:0; height: 240px;
+    						    width: 100%;
+    						    margin-top: 30px;
+    						    margin-bottom: 10px;"
+    						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.473107675962!2d75.00557388601463!3d15.458963589260476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8cd70176844d5%3A0xaccd35d434a2775f!2sB+G+Autos!5e0!3m2!1sen!2sin!4v1552497133525"  >
+    				</iframe>
+
+    			</div>
+
+</footer>
+
+
+  </body>
+</html>

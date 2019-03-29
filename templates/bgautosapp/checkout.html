@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+
+  </head>
+  <body>
+  {% load static %}
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a id="navlogo" class="navbar-brand" href="/shopping/" style="font-family: 'Oswald', sans-serif;" >
+           <img src="{% static "images\bglogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="image unavailables">
+           BG AUTOS
+         </a>
+       <ul class="navbar-nav mr-auto ">
+
+
+         <li class="nav-item active">
+               <a class="nav-link" href="/shopping/">Home <span class="sr-only">(current)</span></a>
+         </li>
+
+
+
+         <li class="nav-item active">
+               <a class="nav-link" href="/tracker/">Tracking <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item active">
+               <a class="nav-link" href="/invoice/">Invoice <span class="sr-only">(current)</span></a>
+         </li>
+
+
+         <li class="nav-item active">
+               <a class="nav-link" href="/contact/">Contact  Us <span class="sr-only">(current)</span></a>
+         </li>
+
+         <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <a class="dropdown-item" href="/accounts">Account</a>
+                 <a class="dropdown-item" href="#">Orders</a>
+                 <div class="dropdown-divider"></div>
+                 <form method="POST" action="/logout">
+                     <div class="container mx-2">
+                       {% csrf_token %}
+                       <button type="submit" value="Logout" class="btn btn-danger align-center">Logout</button>
+
+                     </div>
+
+                 </form></a>
+               </div>
+             </li>
+
+
+       </ul>
+
+       <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search' value="{{request.GET.search}}">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+           </form>
+
+
+           <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+       sagittis lacus vel augue laoreet rutrum faucibus.">
+
+
+         Cart(<span id="cart">0</span>)
+       </button>
+       </nav>
+
+      	<style media="screen">
+      	.footer-distributed{
+      		background-color: #292c2f;
+      		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      		box-sizing: border-box;
+      		width: 100%;
+      		text-align: left;
+      		font: bold 16px sans-serif;
+
+      		padding: 55px 50px;
+      		margin-top: 80px;
+      	}
+
+      	.footer-distributed .footer-left,
+      	.footer-distributed .footer-center,
+      	.footer-distributed .footer-right{
+      		display: inline-block;
+      		vertical-align: top;
+      	}
+
+      	/* Footer left */
+
+      	.footer-distributed .footer-left{
+      		width: 40%;
+      	}
+
+      	/* The company logo */
+
+      	.footer-distributed h3{
+      		color:  #ffffff;
+      		font: normal 36px 'Cookie', cursive;
+      		margin: 0;
+      	}
+
+      	.footer-distributed h3 span{
+      		color:  #5383d3;
+      	}
+
+      	/* Footer links */
+
+      	.footer-distributed .footer-links{
+      		color:  #ffffff;
+      		margin: 20px 0 12px;
+      		padding: 0;
+      	}
+
+      	.footer-distributed .footer-links a{
+      		display:inline-block;
+      		line-height: 1.8;
+      		text-decoration: none;
+      		color:  inherit;
+      	}
+
+      	.footer-distributed .footer-company-name{
+      		color:  #8f9296;
+      		font-size: 14px;
+      		font-weight: normal;
+      		margin: 0;
+      	}
+
+      	/* Footer Center */
+
+      	.footer-distributed .footer-center{
+      		width: 35%;
+      	}
+
+      	.footer-distributed .footer-center i{
+      		background-color:  #33383b;
+      		color: #ffffff;
+      		font-size: 25px;
+      		width: 38px;
+      		height: 38px;
+      		border-radius: 50%;
+      		text-align: center;
+      		line-height: 42px;
+      		margin: 10px 15px;
+      		vertical-align: middle;
+      	}
+
+      	.footer-distributed .footer-center i.fa-envelope{
+      		font-size: 17px;
+      		line-height: 38px;
+      	}
+
+      	.footer-distributed .footer-center p{
+      		display: inline-block;
+      		color: #ffffff;
+      		vertical-align: middle;
+      		margin:0;
+      	}
+
+      	.footer-distributed .footer-center p span{
+      		display:block;
+      		font-weight: normal;
+      		font-size:14px;
+      		line-height:2;
+      	}
+
+      	.footer-distributed .footer-center p a{
+      		color:  #5383d3;
+      		text-decoration: none;;
+      	}
+
+
+
+        .footer-distributed .footer-center{
+          width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+          background-color:  #33383b;
+          color: #ffffff;
+          font-size: 25px;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 42px;
+          margin: 10px 15px;
+          vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+          font-size: 17px;
+          line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p{
+          display: inline-block;
+          color: #ffffff;
+          vertical-align: middle;
+          margin:0;
+        }
+
+        .footer-distributed .footer-center p span{
+          display:block;
+          font-weight: normal;
+          font-size:14px;
+          line-height:2;
+        }
+
+        .footer-distributed .footer-center p a{
+          color:  #5383d3;
+          text-decoration: none;;
+        }
+
+
+
+
+
+
+      	/* Footer Right */
+
+
+
+          	.footer-distributed .footer-right{
+          		width: 35%;
+          	}
+
+          	.footer-distributed .footer-right i{
+          		background-color:  #33383b;
+          		color: #ffffff;
+          		font-size: 25px;
+          		width: 38px;
+          		height: 38px;
+          		border-radius: 50%;
+          		text-align: center;
+          		line-height: 42px;
+          		margin: 10px 15px;
+          		vertical-align: middle;
+          	}
+
+          	.footer-distributed .footer-right i.fa-envelope{
+          		font-size: 17px;
+          		line-height: 38px;
+          	}
+
+          	.footer-distributed .footer-right p{
+          		display: inline-block;
+          		color: #ffffff;
+          		vertical-align: middle;
+          		margin:0;
+          	}
+
+          	.footer-distributed .footer-right p span{
+          		display:block;
+          		font-weight: normal;
+          		font-size:14px;
+          		line-height:2;
+          	}
+
+          	.footer-distributed .footer-right p a{
+          		color:  #5383d3;
+          		text-decoration: none;;
+          	}
+
+
+
+            .footer-distributed .footer-right{
+              width: 35%;
+            }
+
+            .footer-distributed .footer-right i{
+              background-color:  #33383b;
+              color: #ffffff;
+              font-size: 25px;
+              width: 38px;
+              height: 38px;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 42px;
+              margin: 10px 15px;
+              vertical-align: middle;
+            }
+
+            .footer-distributed .footer-right i.fa-envelope{
+              font-size: 17px;
+              line-height: 38px;
+            }
+
+            .footer-distributed .footer-right p{
+              display: inline-block;
+              color: #ffffff;
+              vertical-align: middle;
+              margin:0;
+            }
+
+            .footer-distributed .footer-right p span{
+              display:block;
+              font-weight: normal;
+              font-size:14px;
+              line-height:2;
+            }
+
+            .footer-distributed .footer-right p a{
+              color:  #5383d3;
+              text-decoration: none;;
+            }
+
+
+
+
+
+
+
+
+
+
+      	.footer-distributed .footer-right{
+      		width: 20%;
+      	}
+
+      	.footer-distributed .footer-company-about{
+      		line-height: 20px;
+      		color:  #92999f;
+      		font-size: 13px;
+      		font-weight: normal;
+      		margin: 0;
+      	}
+
+      	.footer-distributed .footer-company-about span{
+      		display: block;
+      		color:  #ffffff;
+      		font-size: 14px;
+      		font-weight: bold;
+      		margin-bottom: 20px;
+      	}
+
+      	.footer-distributed .footer-icons{
+      		margin-top: 25px;
+      	}
+
+      	/* If you don't want the footer to be responsive, remove these media queries */
+
+      	@media (max-width: 880px) {
+
+      		.footer-distributed{
+      			font: bold 14px sans-serif;
+      		}
+
+      		.footer-distributed .footer-left,
+      		.footer-distributed .footer-center,
+      		.footer-distributed .footer-right{
+      			display: block;
+      			width: 100%;
+      			margin-bottom: 40px;
+      			text-align: center;
+      		}
+
+      		.footer-distributed .footer-center i{
+      			margin-left: 0;
+      		}
+
+
+      	}
+
+      	</style>
+
+
+          	<style media="screen">
+          	.footer-distributed{
+          		background-color: #292c2f;
+          		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+          		box-sizing: border-box;
+          		width: 100%;
+          		text-align: left;
+          		font: bold 16px sans-serif;
+
+          		padding: 55px 50px;
+          		margin-top: 80px;
+          	}
+
+          	.footer-distributed .footer-left,
+          	.footer-distributed .footer-center,
+          	.footer-distributed .footer-right{
+          		display: inline-block;
+          		vertical-align: top;
+          	}
+
+          	/* Footer left */
+
+          	.footer-distributed .footer-left{
+          		width: 40%;
+          	}
+
+          	/* The company logo */
+
+          	.footer-distributed h3{
+          		color:  #ffffff;
+          		font: normal 36px 'Cookie', cursive;
+          		margin: 0;
+          	}
+
+          	.footer-distributed h3 span{
+          		color:  #5383d3;
+          	}
+
+          	/* Footer links */
+
+          	.footer-distributed .footer-links{
+          		color:  #ffffff;
+          		margin: 20px 0 12px;
+          		padding: 0;
+          	}
+
+          	.footer-distributed .footer-links a{
+          		display:inline-block;
+          		line-height: 1.8;
+          		text-decoration: none;
+          		color:  inherit;
+          	}
+
+          	.footer-distributed .footer-company-name{
+          		color:  #8f9296;
+          		font-size: 14px;
+          		font-weight: normal;
+          		margin: 0;
+          	}
+
+          	/* Footer Center */
+
+          	.footer-distributed .footer-center{
+          		width: 35%;
+          	}
+
+          	.footer-distributed .footer-center i{
+          		background-color:  #33383b;
+          		color: #ffffff;
+          		font-size: 25px;
+          		width: 38px;
+          		height: 38px;
+          		border-radius: 50%;
+          		text-align: center;
+          		line-height: 42px;
+          		margin: 10px 15px;
+          		vertical-align: middle;
+          	}
+
+          	.footer-distributed .footer-center i.fa-envelope{
+          		font-size: 17px;
+          		line-height: 38px;
+          	}
+
+          	.footer-distributed .footer-center p{
+          		display: inline-block;
+          		color: #ffffff;
+          		vertical-align: middle;
+          		margin:0;
+          	}
+
+          	.footer-distributed .footer-center p span{
+          		display:block;
+          		font-weight: normal;
+          		font-size:14px;
+          		line-height:2;
+          	}
+
+          	.footer-distributed .footer-center p a{
+          		color:  #5383d3;
+          		text-decoration: none;;
+          	}
+
+
+
+            .footer-distributed .footer-center{
+              width: 35%;
+            }
+
+            .footer-distributed .footer-center i{
+              background-color:  #33383b;
+              color: #ffffff;
+              font-size: 25px;
+              width: 38px;
+              height: 38px;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 42px;
+              margin: 10px 15px;
+              vertical-align: middle;
+            }
+
+            .footer-distributed .footer-center i.fa-envelope{
+              font-size: 17px;
+              line-height: 38px;
+            }
+
+            .footer-distributed .footer-center p{
+              display: inline-block;
+              color: #ffffff;
+              vertical-align: middle;
+              margin:0;
+            }
+
+            .footer-distributed .footer-center p span{
+              display:block;
+              font-weight: normal;
+              font-size:14px;
+              line-height:2;
+            }
+
+            .footer-distributed .footer-center p a{
+              color:  #5383d3;
+              text-decoration: none;;
+            }
+
+
+
+
+
+
+          	/* Footer Right */
+
+
+
+              	.footer-distributed .footer-right{
+              		width: 35%;
+              	}
+
+              	.footer-distributed .footer-right i{
+              		background-color:  #33383b;
+              		color: #ffffff;
+              		font-size: 25px;
+              		width: 38px;
+              		height: 38px;
+              		border-radius: 50%;
+              		text-align: center;
+              		line-height: 42px;
+              		margin: 10px 15px;
+              		vertical-align: middle;
+              	}
+
+              	.footer-distributed .footer-right i.fa-envelope{
+              		font-size: 17px;
+              		line-height: 38px;
+              	}
+
+              	.footer-distributed .footer-right p{
+              		display: inline-block;
+              		color: #ffffff;
+              		vertical-align: middle;
+              		margin:0;
+              	}
+
+              	.footer-distributed .footer-right p span{
+              		display:block;
+              		font-weight: normal;
+              		font-size:14px;
+              		line-height:2;
+              	}
+
+              	.footer-distributed .footer-right p a{
+              		color:  #5383d3;
+              		text-decoration: none;;
+              	}
+
+
+
+                .footer-distributed .footer-right{
+                  width: 35%;
+                }
+
+                .footer-distributed .footer-right i{
+                  background-color:  #33383b;
+                  color: #ffffff;
+                  font-size: 25px;
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  text-align: center;
+                  line-height: 42px;
+                  margin: 10px 15px;
+                  vertical-align: middle;
+                }
+
+                .footer-distributed .footer-right i.fa-envelope{
+                  font-size: 17px;
+                  line-height: 38px;
+                }
+
+                .footer-distributed .footer-right p{
+                  display: inline-block;
+                  color: #ffffff;
+                  vertical-align: middle;
+                  margin:0;
+                }
+
+                .footer-distributed .footer-right p span{
+                  display:block;
+                  font-weight: normal;
+                  font-size:14px;
+                  line-height:2;
+                }
+
+                .footer-distributed .footer-right p a{
+                  color:  #5383d3;
+                  text-decoration: none;;
+                }
+
+
+
+
+
+
+
+
+
+
+          	.footer-distributed .footer-right{
+          		width: 20%;
+          	}
+
+          	.footer-distributed .footer-company-about{
+          		line-height: 20px;
+          		color:  #92999f;
+          		font-size: 13px;
+          		font-weight: normal;
+          		margin: 0;
+          	}
+
+          	.footer-distributed .footer-company-about span{
+          		display: block;
+          		color:  #ffffff;
+          		font-size: 14px;
+          		font-weight: bold;
+          		margin-bottom: 20px;
+          	}
+
+          	.footer-distributed .footer-icons{
+          		margin-top: 25px;
+          	}
+
+          	/* If you don't want the footer to be responsive, remove these media queries */
+
+          	@media (max-width: 880px) {
+
+          		.footer-distributed{
+          			font: bold 14px sans-serif;
+          		}
+
+          		.footer-distributed .footer-left,
+          		.footer-distributed .footer-center,
+          		.footer-distributed .footer-right{
+          			display: block;
+          			width: 100%;
+          			margin-bottom: 40px;
+          			text-align: center;
+          		}
+
+          		.footer-distributed .footer-center i{
+          			margin-left: 0;
+          		}
+
+
+          	}
+
+          	</style>
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="col my-4">
+            <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
+            <div class="my-4">
+                <ul class="list-group" id="items">
+                </ul>
+            </div>
+        </div>
+        <h6 class="card-title" id="pricepr{{i.productid}}">{{i.productprice}}</h6>
+        <div class="col my-4">
+            <h2>Step 2 - Enter Address & Other Details:</h2>
+            <form method="POST" name="validcart" onsubmit="return validateForm()">
+              {% csrf_token %}
+                <input type="hidden" name="itemsJson" id="itemsJson">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputname">Name*</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{Customers.name}}" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email*</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{Customers.email}}" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address*</label>
+                    <input type="text" class="form-control" id="address1" name="address1" value="{{Customers.address}}" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address line 2</label>
+                    <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City*</label>
+                        <input type="text" class="form-control" id="city" value="{{Customers.city}}" name="city">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">State*</label>
+                        <input type="text" class="form-control" id="state" name="state"  value="{{Customers.state}}"  placeholder="Enter State">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Zip*</label>
+                        <input type="text" class="form-control" id="zip_code" value="{{Customers.pincode}}" name="zip_code">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputZip">Phone Number*</label>
+                    <input type="tel" class="form-control" id="phone" value="{{Customers.phoneno}}" name="phone">
+                </div>
+                <small>Fields marked with * are mandatory</small> <br><br>
+                <input type="hidden" name="smname" id="smname" />
+
+
+                <div class="my-4">
+                    <ul class="list-group" id="ritems">
+                    </ul>
+                </div>
+
+
+
+
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Pay Using
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <button  class="btn btn-link" type="button" onclick="myFunction1()" name="button">Credit/Debit Card Payment</button>
+                      <small>|</small>
+
+                      <button  class="btn btn-link" type="button" onclick="myFunction()" name="button">Cash On Delivery</button>
+
+                    </div>
+                  </div>
+
+
+                  <div id="myDIV" style="visibility: hidden;">
+                    Payment Mode : Cash On Delivery
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+
+                  </div>
+
+
+            </form>
+
+            <form id="rzp-button1" onsubmit="validateForm1()" method="POST">
+              {% csrf_token %}
+
+              <div id="myDIV1" style="visibility: hidden;">
+                Payment Mode : Credit/Debit Card Payment
+                <button  class="btn btn-primary">Place Order</button>
+
+              </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- <button id="rzp-button1">Pay via Debit/Credit Cards</button> -->
+
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+    function myFunction(){
+      var x = document.getElementById("myDIV");
+      var z = document.getElementById("myDIV1");
+
+      if (x.style.visibility === "hidden") {
+        x.style.visibility = "visible";
+        z.style.visibility = "hidden";
+
+
+      }else {
+        z.style.visibility = "hidden";
+      }
+
+
+}
+
+function myFunction1(){
+  var x = document.getElementById("myDIV");
+  var z = document.getElementById("myDIV1");
+
+
+        if (z.style.visibility === "hidden") {
+          z.style.visibility = "visible";
+          x.style.visibility = "hidden";
+
+
+        }else {
+          x.style.visibility = "hidden";
+        }
+}
+
+    //   if (z.style.visibility === "block") {
+    //     z.style.visibility = "none";
+    //
+    //   } else {
+    //     z.style.visibility = "block";
+    //
+    //   }
+    // }
+
+
+
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+console.log(cart);
+var sum = 0;
+var total_bill = 0;
+var names="";
+var qtys="";
+var prices="";
+var ritems="";
+if ($.isEmptyObject(cart)) {
+    //if object is empty
+    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+    $('#items').append(mystr);
+} else {
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2] * qty;
+        total_bill += price
+        sum = sum + qty;
+        names = names + "  " +name;
+        qtys = qtys + "  " +qty;
+        prices = prices + "  " +price;
+        ritems = ritems + " " + name + " " + "qty="+ qty + " " + "price="+price+" " ;
+
+
+
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${name}
+                    <h6 style="margin-right:-680px"> Quantity </h6>
+
+                    <span style="margin-right:-680px" id="div${item}" class="divpr">
+
+                    <button id='minus" + ${item} + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''> ${cart[item][0]} </span> <button id='plus" + ${item} + "' class='btn btn-primary plus'> + </button>
+                    </span>
+
+                    <span class="badge badge-light"> Rs.${price}</span>
+
+                </li>`
+
+        $('#items').append(mystr);
+}
+
+    rstr=`<input type="hidden" name="rname" id="rname" value="${ritems}" />
+        `
+          $('#ritems').append(rstr);
+
+
+
+
+
+    total = `<div class="alert alert-success" role="alert"><li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h3>Total Bill</h3>
+                    <h3>  Rs.${total_bill}  </h3>
+                </li>
+                <input onclick='clearCart()' class="btn btn-danger" style=" margin-top : 10px ; margin-left:930px; "type="submit" value="Clear cart">
+                </div>`
+    $('#items').append(total);
+
+}
+
+document.getElementById('cart').innerHTML = sum;
+document.getElementById('smname').value = total_bill;
+console.log(document.getElementById('smname').value = total_bill);
+
+function clearCart()
+ {
+     cart = JSON.parse(localStorage.getItem('cart'));
+
+     localStorage.clear();
+     cart = {};
+     updateCart(cart);
+     location.reload();
+
+
+ }
+
+
+
+$('#itemsJson').val(JSON.stringify(cart));
+
+
+let y=100
+let z = total_bill * y;
+if(z==0){
+  alert("ADD VALUE")
+}
+var options = {
+
+    "key": "rzp_test_OXBRsTznXGBJox",
+    "amount":z, //Amount in Paise
+    "name": "BGAUTOS",
+    "description": "",
+    "image": "{% static "images\bglogo.png" %}",
+    "handler": function (response){
+        alert("Payment successful");
+        document.location = "/ordersuccess";
+
+
+
+
+    },
+
+
+    "theme": {
+        "color": "3d67cb"
+    }
+};
+var rzp1 = new Razorpay(options);
+e = document.getElementById('rzp-button1').onclick
+
+document.getElementById('rzp-button1').onclick = function(e){
+  var namee = document.forms["validcart"]["name"].value;
+  var emaill = document.forms["validcart"]["email"].value;
+  var addresss = document.forms["validcart"]["address1"].value;
+  var cityy = document.forms["validcart"]["city"].value;
+  var statee = document.forms["validcart"]["state"].value;
+  var zipp = document.forms["validcart"]["zip_code"].value;
+  var phno = document.forms["validcart"]["phone"].value;
+
+  if ((total_bill==0)){
+    alert("Please add some items in your cart")
+    return false;
+  }
+  if( (namee == "")||(emaill == "")||(addresss == "")||(cityy == "")||(statee == "")||(zipp == "")||(phno == "") ){
+    alert("All fields must be filled out");
+    return false;
+  }
+
+    rzp1.open();
+    e.preventDefault();
+
+    alert('Thanks for ordering with us. Use it to track your order using our order tracker');
+
+
+
+}
+
+$('.divpr').on("click", "button.minus", function() {
+  console.log("HECK");
+    a = this.id.slice(11,12);
+    console.log(a);
+    console.log(a);
+    console.log("CART CHECK");
+    console.log(cart['pr' + a][0]);
+    cart['pr' + a][0] = cart['pr' + a][0] - 1;
+    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+    // document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    if (cart['pr'+a][0] == 0)
+    {
+      document.getElementById('divpr' + a).innerHTML= '<button id="pr'+ a +'" class="btn btn-primary cart"> Add to Cart</button>';
+      delete cart['pr'+a];
+    }
+
+    updateCart(cart);
+    location.reload();
+
+});
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(8,11);
+    console.log(a);
+    cart[a][0] = cart[a][0] + 1;
+    updateCart(cart);
+    location.reload();
+
+});
+
+function updateCart(cart) {
+  console.log(cart);
+    for (var item in cart) {
+
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    console.log(cart);
+}
+
+
+function validateForm() {
+  console.log({{id}});
+  var namee = document.forms["validcart"]["name"].value;
+  var emaill = document.forms["validcart"]["email"].value;
+  var addresss = document.forms["validcart"]["address1"].value;
+  var cityy = document.forms["validcart"]["city"].value;
+  var statee = document.forms["validcart"]["state"].value;
+  var zipp = document.forms["validcart"]["zip_code"].value;
+  var phno = document.forms["validcart"]["phone"].value;
+
+  if ((total_bill==0)){
+    alert("Please add some items in your cart")
+    return false;
+  }
+  if( (namee == "")||(emaill == "")||(addresss == "")||(cityy == "")||(statee == "")||(zipp == "")||(phno == "") ){
+    alert("All fields must be filled out");
+    return false;
+  }
+
+alert('Thanks for ordering with us. Use it to track your order using our order tracker');
+localStorage.clear();
+
+document.location = "/ordersuccess";
+}
+
+</script>﻿
+
+
+
+
+
+
+    		<footer class="footer-distributed" >
+
+    			<div class="footer-left">
+              <h3 style="font-family: 'Oswald', sans-serif;" >BG AUTOS</h3>
+
+
+    				<p class="footer-links">
+    					<a href="/shopping/">Home</a>
+    					·
+    					<a href="/tracker/">Tracking</a>
+    					·
+    					<a href="/invoice/">Invoice</a>
+
+    				</p>
+
+    				<p class="footer-company-name">BGAUTOS &copy; 2019</p>
+    			</div>
+
+    			<div class="footer-center">
+
+    				<div>
+    					<i class="fa fa-map-marker"></i>
+    					<p><span>Anand Arcade, Maratha Colony Road, Shivaji Circle, </span>Maratha Colony, Dharwad - 580008, Opp.KVG Bank</p>
+    				</div>
+
+
+
+
+
+    			</div>
+
+    			<div class="footer-right">
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+918362746580</p>
+
+            </div>
+
+
+
+                        				<div>
+                        					<i class="fa fa-phone"></i>
+                        					<p>+919964329454</p>
+
+                        				</div>
+
+                                <div>
+                        					<i class="fa fa-envelope"></i>
+                        					<p><a href="mailto:support@company.com">bgautos0@gmail.com</a></p>
+                        				</div>
+
+
+    			</div>
+    			<div class="container " style="" >
+
+    				<iframe frameborder="0" style="border:0; height: 240px;
+    						    width: 100%;
+    						    margin-top: 30px;
+    						    margin-bottom: 10px;"
+    						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.473107675962!2d75.00557388601463!3d15.458963589260476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8cd70176844d5%3A0xaccd35d434a2775f!2sB+G+Autos!5e0!3m2!1sen!2sin!4v1552497133525"  >
+    				</iframe>
+
+    			</div>
+
+</footer>
+
+  </body>
+</html>

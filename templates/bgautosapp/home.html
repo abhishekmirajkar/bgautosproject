@@ -1,0 +1,844 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static "images\bglogo.png" %}" rel="icon">
+  <link href="{% static "images\bglogo.png" %}" rel="BG LOGO">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static "lib/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static "lib/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+  <link href="{% static "lib/animate/animate.min.css" %}" rel="stylesheet">
+  <link href="{% static "lib/ionicons/css/ionicons.min.css" %}" rel="stylesheet">
+  <link href="{% static "lib/owlcarousel/assets/owl.carousel.min.css" %}" rel="stylesheet">
+  <link href="{% static "lib/lightbox/css/lightbox.min.css" %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: NewBiz
+    Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+  <style>
+      .col-md-3
+      {
+      display: inline-block;
+      margin-left:-4px;
+
+      }
+      .carousel-indicators .active {
+      background-color: blue;
+        }
+      .col-md-3 img{
+      width:250px;
+      height: 300px;
+      }
+      body .carousel-indicator li{
+      background-color: blue;
+      }
+
+      /* slider postion indicator */
+      body .carousel-indicators{
+      bottom: -60px;
+
+
+
+      }
+      body .carousel-control-prev-icon,
+      body .carousel-control-next-icon{
+      background-color: blue;
+      padding-bottom: 60px;
+      }
+
+     /* alignment of the next and back click of product */
+     .carousel-control-prev,
+     .carousel-control-next{
+     top: auto;
+     bottom: auto;
+     padding-top: 150px
+     }
+       body .no-padding{
+       padding-left: 0,
+       padding-right: 0;
+       }
+ </style>
+
+
+  	<style media="screen">
+  	.footer-distributed{
+  		background-color: #292c2f;
+  		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  		box-sizing: border-box;
+  		width: 100%;
+  		text-align: left;
+  		font: bold 16px sans-serif;
+  		padding: 55px 50px;
+  		margin-top: 80px;
+  	}
+
+  	.footer-distributed .footer-left,
+  	.footer-distributed .footer-center,
+  	.footer-distributed .footer-right{
+  		display: inline-block;
+  		vertical-align: top;
+  	}
+
+  	/* Footer left */
+
+  	.footer-distributed .footer-left{
+  		width: 40%;
+  	}
+
+  	/* The company logo */
+
+  	.footer-distributed h3{
+  		color:  #ffffff;
+  		font: normal 36px 'Cookie', cursive;
+  		margin: 0;
+  	}
+
+  	.footer-distributed h3 span{
+  		color:  #5383d3;
+  	}
+
+  	/* Footer links */
+
+  	.footer-distributed .footer-links{
+  		color:  #ffffff;
+  		margin: 20px 0 12px;
+  		padding: 0;
+  	}
+
+  	.footer-distributed .footer-links a{
+  		display:inline-block;
+  		line-height: 1.8;
+  		text-decoration: none;
+  		color:  inherit;
+  	}
+
+  	.footer-distributed .footer-company-name{
+  		color:  #8f9296;
+  		font-size: 14px;
+  		font-weight: normal;
+  		margin: 0;
+  	}
+
+  	/* Footer Center */
+
+  	.footer-distributed .footer-center{
+  		width: 35%;
+  	}
+
+  	.footer-distributed .footer-center i{
+  		background-color:  #33383b;
+  		color: #ffffff;
+  		font-size: 25px;
+  		width: 38px;
+  		height: 38px;
+  		border-radius: 50%;
+  		text-align: center;
+  		line-height: 42px;
+  		margin: 10px 15px;
+  		vertical-align: middle;
+  	}
+
+  	.footer-distributed .footer-center i.fa-envelope{
+  		font-size: 17px;
+  		line-height: 38px;
+  	}
+
+  	.footer-distributed .footer-center p{
+  		display: inline-block;
+  		color: #ffffff;
+  		vertical-align: middle;
+  		margin:0;
+  	}
+
+  	.footer-distributed .footer-center p span{
+  		display:block;
+  		font-weight: normal;
+  		font-size:14px;
+  		line-height:2;
+  	}
+
+  	.footer-distributed .footer-center p a{
+  		color:  #5383d3;
+  		text-decoration: none;;
+  	}
+
+
+
+    .footer-distributed .footer-center{
+      width: 35%;
+    }
+
+    .footer-distributed .footer-center i{
+      background-color:  #33383b;
+      color: #ffffff;
+      font-size: 25px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 42px;
+      margin: 10px 15px;
+      vertical-align: middle;
+    }
+
+    .footer-distributed .footer-center i.fa-envelope{
+      font-size: 17px;
+      line-height: 38px;
+    }
+
+    .footer-distributed .footer-center p{
+      display: inline-block;
+      color: #ffffff;
+      vertical-align: middle;
+      margin:0;
+    }
+
+    .footer-distributed .footer-center p span{
+      display:block;
+      font-weight: normal;
+      font-size:14px;
+      line-height:2;
+    }
+
+    .footer-distributed .footer-center p a{
+      color:  #5383d3;
+      text-decoration: none;;
+    }
+
+
+
+
+      	.footer-distributed .footer-right{
+      		width: 35%;
+      	}
+
+      	.footer-distributed .footer-right i{
+      		background-color:  #33383b;
+      		color: #ffffff;
+      		font-size: 25px;
+      		width: 38px;
+      		height: 38px;
+      		border-radius: 50%;
+      		text-align: center;
+      		line-height: 42px;
+      		margin: 10px 15px;
+      		vertical-align: middle;
+      	}
+
+      	.footer-distributed .footer-right i.fa-envelope{
+      		font-size: 17px;
+      		line-height: 38px;
+      	}
+
+      	.footer-distributed .footer-right p{
+      		display: inline-block;
+      		color: #ffffff;
+      		vertical-align: middle;
+      		margin:0;
+      	}
+
+      	.footer-distributed .footer-right p span{
+      		display:block;
+      		font-weight: normal;
+      		font-size:14px;
+      		line-height:2;
+      	}
+
+      	.footer-distributed .footer-right p a{
+      		color:  #5383d3;
+      		text-decoration: none;;
+      	}
+
+        .footer-distributed .footer-right{
+          width: 35%;
+        }
+
+        .footer-distributed .footer-right i{
+          background-color:  #33383b;
+          color: #ffffff;
+          font-size: 25px;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 42px;
+          margin: 10px 15px;
+          vertical-align: middle;
+        }
+
+        .footer-distributed .footer-right i.fa-envelope{
+          font-size: 17px;
+          line-height: 38px;
+        }
+
+        .footer-distributed .footer-right p{
+          display: inline-block;
+          color: #ffffff;
+          vertical-align: middle;
+          margin:0;
+        }
+
+        .footer-distributed .footer-right p span{
+          display:block;
+          font-weight: normal;
+          font-size:14px;
+          line-height:2;
+        }
+
+        .footer-distributed .footer-right p a{
+          color:  #5383d3;
+          text-decoration: none;;
+        }
+
+
+  	.footer-distributed .footer-right{
+  		width: 20%;
+  	}
+
+  	.footer-distributed .footer-company-about{
+  		line-height: 20px;
+  		color:  #92999f;
+  		font-size: 13px;
+  		font-weight: normal;
+  		margin: 0;
+  	}
+
+  	.footer-distributed .footer-company-about span{
+  		display: block;
+  		color:  #ffffff;
+  		font-size: 14px;
+  		font-weight: bold;
+  		margin-bottom: 20px;
+  	}
+
+  	.footer-distributed .footer-icons{
+  		margin-top: 25px;
+  	}
+
+  	/* If you don't want the footer to be responsive, remove these media queries */
+
+  	@media (max-width: 880px) {
+
+  		.footer-distributed{
+  			font: bold 14px sans-serif;
+  		}
+
+  		.footer-distributed .footer-left,
+  		.footer-distributed .footer-center,
+  		.footer-distributed .footer-right{
+  			display: block;
+  			width: 100%;
+  			margin-bottom: 40px;
+  			text-align: center;
+  		}
+
+  		.footer-distributed .footer-center i{
+  			margin-left: 0;
+  		}
+
+
+  	}
+
+  	</style>
+
+
+  <!--==========================
+  Header
+  ============================-->
+
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <div class="row">
+          <a href="#intro" class="scrollto"><img src="{% static "images\bglogo.png" %}" alt="" class="img-fluid"></a>
+        <h1>BG AUTOS</h1>
+        </div>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% static "#intro" %}">Home</a></li>
+          <li><a href="{% static "#about" %}">About Us</a></li>
+          <!-- <li><a href="#services">Services</a></li> -->
+              <li><a href="{% static "#contact" %}">Contact Us</a></li>
+            
+        </ul>
+
+      </nav><!-- .main-nav -->
+
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <img src="{% static "img/intro-img.svg"  %}" alt="" class="img-fluid">
+      </div>
+
+      <div class="intro-info">
+        <h2>We deliver<br><span>4-wheeler spare parts</span><br>at your doorsteps!</h2>
+        <div>
+          <a href="/login" class="btn-get-started scrollto">Login</a>
+          <a href="/register/" class="btn-services scrollto">Register</a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+
+<section id=about>
+
+  <header class="section-header">
+    <h3>Our Products</h3>
+  </header>
+
+
+
+      <div class="container">
+
+           <!--Slideshow starts here -->
+           {% for product, range, nSlides in allProds %}
+           <h5 class="my-4">{{product.0.catname}}</h5>
+    <div class="row">
+       <div id="demo{{forloop.counter}}" class=" col carousel slide my-3" data-ride="carousel">
+           <ul class="carousel-indicators">
+             <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+
+              {% for i in range %}
+
+             <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
+             {% endfor %}
+           </ul>
+
+
+           <div class="container carousel-inner no-padding">
+
+             <div class="carousel-item active">
+
+
+               {% for i in product %}
+               <div class="col-xs-3 col-sm-3 col-md-3">
+                 <div class="card align-items-center" style="width: 18rem;">
+                   <img src='/media/{{i.productimage1}}' class="card-img-top" alt="...">
+                   <div class="card-body">
+                     <h4 class="card-title" id="namepr{{i.productid}}">{{i.producttitle|slice:":17" }}...</h4>
+                     <div class="card-text row mx-1">
+                       <h6>Rs.</h6>
+                       <h6 id="price" class="card-text">{{i.productprice}}</h6>
+
+                     </div>
+
+                  <a href="/products/{{i.productid}}" >   <button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button> </a>
+                   </div>
+                 </div>
+               </div>
+               {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+             </div><div class="carousel-item">
+               {% endif %}
+
+               {% endfor %}
+           </div>
+
+
+
+       </div>
+       </div>
+           <!-- left and right controls for the slide -->
+           <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+               <span class="carousel-control-prev-icon"></span>
+           </a>
+           <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+               <span class="carousel-control-next-icon"></span>
+           </a>
+   </div>
+           {% endfor %}
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+           <div class="container">
+
+                <!--Slideshow starts here -->
+         <div class="row">
+            <div id="demo{{forloop.counter}}" class=" col carousel slide my-3" data-ride="carousel">
+                <ul class="carousel-indicators">
+
+                   {% for i in range %}
+                  <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
+                  {% endfor %}
+                </ul>
+
+
+                <!-- <div class="container carousel-inner no-padding"> -->
+
+                  <!-- <div class="carousel-item active"> -->
+
+
+                    {% for i in prod_list %}
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="card align-items-center" style="width: 18rem;">
+                        <img src='/media/{{i.productimage1}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" id="namepr{{i.productid}}">{{i.producttitle}}</h5>
+                          <div class="card-text row mx-1">
+                            <h6>Rs.</h6>
+                            <h6 id="price" class="card-text">{{i.productprice}}</h6>
+
+                          </div>
+
+                       <a href="/products/{{i.productid}}" >   <button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button> </a>
+                        </div>
+                      </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+                  <!-- </div><div class="carousel-item"> -->
+                    {% endif %}
+
+                    {% endfor %}
+                <!-- </div> -->
+
+
+
+            <!-- </div> -->
+            </div>
+                <!-- left and right controls for the slide -->
+                  </div>
+                <form action="/shopping/">
+                  <div style="text-align:center">
+                    <input type="submit" class="btn btn-success" value="View All Products" style="width: 300px; margin: 0 auto;"  >
+
+                  </div>
+                </form>
+
+            </div>
+
+
+
+
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+          <p>Welcome to BG AUTOS!</p>
+
+          <p> We started the firm in 1997 located in IB Belgavi Road Dharwad. Currently we are situated in Maratha Colony Dharwad.  </p>
+
+
+          <p>Being an authorised retailer of TATA, We aim to offer our customers a variety of the latest four wheelers spare parts. We’ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget friendly products. We offer all of this while providing excellent customer service and friendly support.</p>
+
+
+          <p>The interests of our customers are always the top priority for us, so we hope you will enjoy our products as much as we enjoy making them available to you.</p>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            <img src="{% static "img/about-img.svg" %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src="{% static "img/about-extra-2.svg" %}" class="img-fluid" alt="">
+
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4>Shipping Information.</h4>
+            <p>
+Processing time: Order verification, quality check and packaging. All orders are accepted for dispatch within 24 hours after the order is placed.    </p>
+            <p>
+              Shipping time: This refers to the time it takes for items to be shipped from our store to the destination. Accross the states delivery usually takes about 7–14 business days. After processing and leaving the store, items usually take between 7 and 14 days to arrive at their destination but can take longer due to many orders.  </p>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </section><!-- #about -->
+
+
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Services</h3>
+        </header>
+
+        <div class="row">
+
+
+
+          <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="">Quick Invoice</a></h4>
+              <p class="description">We as a firm provide immediate service to download the invoice soft copy. </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+              <h4 class="title"><a href="">Quick Delivery</a></h4>
+              <p class="description">We as a firm provide quick delivery where we assure the products are delivered within 7-14 days after order is placed.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-world-outline" style="color: #d6ff22;"></i></div>
+              <h4 class="title"><a href="">Wide range of products</a></h4>
+              <p class="description"> We as the firm completly focuses on four wheelers spare parts with large variety products  </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-clock-outline" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="">Quick response service</a></h4>
+              <p class="description">We as a firm highly listen to the feedbacks 24/7 provided by customers and work on the requests.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="clients" class="section-bg">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Our Clients</h3>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/1.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/2.jpg" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/3.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/4.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/5.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/6.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/7.jpg" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static "img/clients/8.png" %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+    		<footer class="footer-distributed" >
+
+    			<div class="footer-left">
+              <h3 style="font-family: 'Oswald', sans-serif;" >BG AUTOS</h3>
+
+
+    				<p class="footer-links">
+    					<a href="/shopping/">Home</a>
+    					·
+    					<a href="/tracker/">Tracking</a>
+    					·
+    					<a href="/invoice/">Invoice</a>
+
+    				</p>
+
+    				<p class="footer-company-name">BGAUTOS &copy; 2019</p>
+    			</div>
+
+    			<div class="footer-center">
+
+    				<div>
+    					<i class="fa fa-map-marker"></i>
+    					<p><span>Anand Arcade, Maratha Colony Road, Shivaji Circle, </span>Maratha Colony, Dharwad - 580008, Opp.KVG Bank</p>
+    				</div>
+
+
+
+
+
+    			</div>
+
+    			<div class="footer-right">
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+918362746580</p>
+
+            </div>
+
+
+
+                        				<div>
+                        					<i class="fa fa-phone"></i>
+                        					<p>+919964329454</p>
+
+                        				</div>
+
+                                <div>
+                        					<i class="fa fa-envelope"></i>
+                        					<p><a href="mailto:support@company.com">bgautos0@gmail.com</a></p>
+                        				</div>
+
+
+    			</div>
+    			<div class="container " style="" >
+
+    				<iframe frameborder="0" style="border:0; height: 240px;
+    						    width: 100%;
+    						    margin-top: 30px;
+    						    margin-bottom: 10px;"
+    						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.473107675962!2d75.00557388601463!3d15.458963589260476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8cd70176844d5%3A0xaccd35d434a2775f!2sB+G+Autos!5e0!3m2!1sen!2sin!4v1552497133525"  >
+    				</iframe>
+
+    			</div>
+
+</footer>
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static "lib/jquery/jquery.min.js"  %}"></script>
+  <script src="{% static "lib/jquery/jquery-migrate.min.js"  %}"></script>
+  <script src="{% static "lib/bootstrap/js/bootstrap.bundle.min.js"  %}"></script>
+  <script src="{% static "lib/easing/easing.min.js"  %}"></script>
+  <script src="{% static "lib/mobile-nav/mobile-nav.js"  %}"></script>
+  <script src="{% static "lib/wow/wow.min.js"  %}"></script>
+  <script src="{% static "lib/waypoints/waypoints.min.js"  %}"></script>
+  <script src="{% static "lib/counterup/counterup.min.js"  %}"></script>
+  <script src="{% static "lib/owlcarousel/owl.carousel.min.js"  %}"></script>
+  <script src="{% static "lib/isotope/isotope.pkgd.min.js"  %}"></script>
+  <script src="{% static "lib/lightbox/js/lightbox.min.js"  %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static "contactform/contactform.js" %}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static "js/main.js" %}"></script>
+
+</body>
+</html>

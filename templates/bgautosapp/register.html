@@ -1,0 +1,449 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/indexx.css" %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+  </head>
+
+  <body>
+    {% load static %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a id="navlogo" class="navbar-brand" href="#" style="font-family: 'Oswald', sans-serif;" >
+          <img src="{% static "images\bglogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="image unavailables">
+          BG AUTOS
+        </a>
+        <ul class="navbar-nav mr-auto ">
+
+
+          <li class="nav-item active">
+                <a class="nav-link" href="/login/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+                <a class="nav-link" href="/tracker/">Tracking <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+                <a class="nav-link" href="/invoice/">Invoice <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+                <a class="nav-link" href="/contact/">Contact  Us <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/accounts">Account</a>
+                  <a class="dropdown-item" href="#">Orders</a>
+                  <div class="dropdown-divider"></div>
+                  <form method="POST" action="/logout">
+                      <div class="container mx-2">
+                        {% csrf_token %}
+                        <button type="submit" value="Logout" class="btn btn-danger align-center">Logout</button>
+
+                      </div>
+
+                  </form></a>
+                </div>
+              </li>
+        </ul>
+
+
+
+
+      </nav>
+
+    <style media="screen">
+    .footer-distributed{
+      background-color: #292c2f;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      box-sizing: border-box;
+      width: 100%;
+      text-align: left;
+      font: bold 16px sans-serif;
+
+      padding: 55px 50px;
+      margin-top: 80px;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    /* Footer left */
+
+    .footer-distributed .footer-left{
+      width: 40%;
+    }
+
+    /* The company logo */
+
+    .footer-distributed h3{
+      color:  #ffffff;
+      font: normal 36px 'Cookie', cursive;
+      margin: 0;
+    }
+
+    .footer-distributed h3 span{
+      color:  #5383d3;
+    }
+
+    /* Footer links */
+
+    .footer-distributed .footer-links{
+      color:  #ffffff;
+      margin: 20px 0 12px;
+      padding: 0;
+    }
+
+    .footer-distributed .footer-links a{
+      display:inline-block;
+      line-height: 1.8;
+      text-decoration: none;
+      color:  inherit;
+    }
+
+    .footer-distributed .footer-company-name{
+      color:  #8f9296;
+      font-size: 14px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    /* Footer Center */
+
+    .footer-distributed .footer-center{
+      width: 35%;
+    }
+
+    .footer-distributed .footer-center i{
+      background-color:  #33383b;
+      color: #ffffff;
+      font-size: 25px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 42px;
+      margin: 10px 15px;
+      vertical-align: middle;
+    }
+
+    .footer-distributed .footer-center i.fa-envelope{
+      font-size: 17px;
+      line-height: 38px;
+    }
+
+    .footer-distributed .footer-center p{
+      display: inline-block;
+      color: #ffffff;
+      vertical-align: middle;
+      margin:0;
+    }
+
+    .footer-distributed .footer-center p span{
+      display:block;
+      font-weight: normal;
+      font-size:14px;
+      line-height:2;
+    }
+
+    .footer-distributed .footer-center p a{
+      color:  #5383d3;
+      text-decoration: none;;
+    }
+
+
+    /* Footer Right */
+
+    .footer-distributed .footer-right{
+      width: 20%;
+    }
+
+    .footer-distributed .footer-company-about{
+      line-height: 20px;
+      color:  #92999f;
+      font-size: 13px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .footer-distributed .footer-company-about span{
+      display: block;
+      color:  #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .footer-distributed .footer-icons{
+      margin-top: 25px;
+    }
+
+    /* If you don't want the footer to be responsive, remove these media queries */
+
+    @media (max-width: 880px) {
+
+      .footer-distributed{
+        font: bold 14px sans-serif;
+      }
+
+      .footer-distributed .footer-left,
+      .footer-distributed .footer-center,
+      .footer-distributed .footer-right{
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .footer-distributed .footer-center i{
+        margin-left: 0;
+      }
+
+
+    }
+
+    /* .html{
+      height: 100%;
+      width: 100%;
+    } */
+
+    </style>
+
+
+
+
+
+
+
+                    <div class="container align">
+                          <div class="jumbotron">
+
+                              {% if registered %}
+                                <h1>Thank you for registering!</h1>
+                                <form action="/login/">
+                                    <input class="btn btn-primary" type="submit" name="" value="Login">
+                                  </form>
+                              {% else %}
+                              <h1>Register Here</h1>
+                              <h3>Just fill out the form.</h3>
+
+
+
+
+                              <form  method="POST">
+                                  {% csrf_token %}
+                                  <!-- {{ user_form.as_p }}
+                                  {{ profile_form.as_p }} -->
+
+                                  <label for="password">Name:</label>
+                                        <div class="form-group">
+                                  <input required pattern="[A-Za-z ]+" type="text" name="name" class="form-control" id="name" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Enter your name here" >
+                                  <small>Enter alphabets only</small>
+
+                                          </div>
+
+
+                                  <label for="email">Email:</label>
+                                  <input required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type=email name="email" class="form-control" id="email" style="border: 2px solid #3498db;  border-radius: 25px " placeholder="Enter your E-mail here" >
+                                  <small>Enter complete email</small>
+                                  <br>
+                                  <br>
+
+                                  {% if register %}
+                                      <h5><font color="red">This email already exists.</font></h5>
+                                  {% endif %}
+
+
+                                <label for="password">Password:</label>
+                            <div class="form-group">
+                                  <input required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" name="password" class="form-control" id="password" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Enter your password here" >
+                                  <small>Your password must contain at least 8 characters,1 special character and 1 numeric value.</small>
+
+
+                            </div>
+
+                            <label for="password">Confirm Password:</label>
+                        <div class="form-group">
+                              <input  required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" name="confirm password" class="form-control" id="confirm_password" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Re-enter your password here" >
+                        </div>
+<!--
+                            <label for="password">Confirm Password:</label>
+                        <div class="form-group">
+                              <input type="password" name="cccpassword" class="form-control" id="cccpassword" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Confirm password" >
+                        </div> -->
+
+                        <div class="row container">
+
+                                              <label >Phone No:</label>
+                                          <div class="form-group">
+                                            <br>
+                                            <div class="" style="margin-left : -70px">
+                                              <input required pattern="[0-9]{10}" type="text" name="phone" class="form-control" id="phone" style="border: 2px solid #3498db; width: 260px ;border-radius: 25px;  "  placeholder="Enter your Contact No here" >
+                                                <small>Enter contact number without country code</small>
+                                            </div>
+                                          </div>
+
+                                          <div class="aa" style="">
+                                            <label >City:</label>
+
+                                          </div>
+                                          <div class="form-group">
+                                            <br>
+
+                                                <div class="" style="margin-left : 00px; margin-right:-90px">
+                                                  <input required pattern="[A-Za-z]+" type="text" name="city" class="form-control" id="city" style="border: 2px solid #3498db;width: 295px;  border-radius: 25px; "  placeholder="Enter your city here" >
+
+                                                </div>
+                                          </div>
+
+                                          <script>
+                                                var password = document.getElementById("password"),
+                                                 confirm_password = document.getElementById("confirm_password");
+
+                                                function validatePassword()
+                                                {
+                                                     if(password.value != confirm_password.value)
+                                                     {
+                                                            confirm_password.setCustomValidity("Passwords Don't Match");
+                                                     }
+                                                     else
+                                                     {
+                                                             confirm_password.setCustomValidity('');
+                                                     }
+                                                }
+
+                                                password.onchange = validatePassword;
+                                                confirm_password.onkeyup = validatePassword;
+                                            </script>
+
+<!--
+                                          <div class="container" style=" margin-bottom:-22px">
+                                            <label for="password">Phone No:</label>
+
+                                          </div>
+                                        <div class="form-group">
+                                          <br>
+                                              <input type="text" name="phone" class="form-control" id="phone" style="border: 2px solid #3498db; width: 265px; border-radius: 25px ; margin-left: 15px;"  placeholder="Enter your Contact No here" >
+                                        </div>
+
+
+                                        <div class="form-group">
+                                          <label style="padding-top:-510px" >City:</label>
+
+                                              <input type="text" name="city" class="form-control" id="city" style="border: 2px solid #3498db; width: 265px; border-radius: 25px; margin-left:  10px;"  placeholder="Enter your city here" >
+                                        </div> -->
+                        </div>
+
+
+                <label for="password">State:</label>
+            <div class="form-group">
+                  <input required pattern="[A-Za-z]+" type="text" name="state" class="form-control" id="state" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Enter your state here" >
+            </div>
+
+
+            <label for="password">Address:</label>
+        <div class="form-group">
+              <input  type="text" name="address" class="form-control" id="address" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Enter your address here" >
+        </div>
+
+
+
+          <label for="password">Pin Code:</label>
+          <div class="form-group">
+            <input required pattern="[0-9]{6}" type="text" name="pin" class="form-control" id="pin" style="border: 2px solid #3498db;  border-radius: 25px "  placeholder="Enter you pin code here" >
+          </div>
+
+
+                                  <input type="submit" name="" class="btn btn-primary" value="Register">
+                              </form>
+
+                              {% endif %}
+
+                            </div>
+
+                    </div>
+
+
+
+                        		<footer class="footer-distributed" >
+
+                        			<div class="footer-left">
+                                  <h3 style="font-family: 'Oswald', sans-serif;" >BG AUTOS</h3>
+
+
+                        				<p class="footer-links">
+                        					<a href="/shopping/">Home</a>
+                        					·
+                        					<a href="/tracker/">Tracking</a>
+                        					·
+                        					<a href="/invoice/">Invoice</a>
+
+                        				</p>
+
+                        				<p class="footer-company-name">BGAUTOS &copy; 2019</p>
+                        			</div>
+
+                        			<div class="footer-center">
+
+                        				<div>
+                        					<i class="fa fa-map-marker"></i>
+                        					<p><span>Anand Arcade, Maratha Colony Road, Shivaji Circle, </span>Maratha Colony, Dharwad - 580008, Opp.KVG Bank</p>
+                        				</div>
+
+
+
+
+
+                        			</div>
+
+                        			<div class="footer-right">
+                                <div>
+                                  <i class="fa fa-phone"></i>
+                                  <p>+918362746580</p>
+
+                                </div>
+
+
+
+                                            				<div>
+                                            					<i class="fa fa-phone"></i>
+                                            					<p>+919964329454</p>
+
+                                            				</div>
+
+                                                    <div>
+                                            					<i class="fa fa-envelope"></i>
+                                            					<p><a href="mailto:support@company.com">bgautos0@gmail.com</a></p>
+                                            				</div>
+
+
+                        			</div>
+                        			<div class="container " style="" >
+
+                        				<iframe frameborder="0" style="border:0; height: 240px;
+                        						    width: 100%;
+                        						    margin-top: 30px;
+                        						    margin-bottom: 10px;"
+                        						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.473107675962!2d75.00557388601463!3d15.458963589260476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8cd70176844d5%3A0xaccd35d434a2775f!2sB+G+Autos!5e0!3m2!1sen!2sin!4v1552497133525"  >
+                        				</iframe>
+
+                        			</div>
+
+                    </footer>
+
+  </body>
+</html>

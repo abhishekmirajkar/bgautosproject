@@ -1,0 +1,429 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+
+      	<style media="screen">
+      	.footer-distributed{
+      		background-color: #292c2f;
+      		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      		box-sizing: border-box;
+      		width: 100%;
+      		text-align: left;
+      		font: bold 16px sans-serif;
+
+      		padding: 55px 50px;
+      		margin-top: 80px;
+      	}
+
+      	.footer-distributed .footer-left,
+      	.footer-distributed .footer-center,
+      	.footer-distributed .footer-right{
+      		display: inline-block;
+      		vertical-align: top;
+      	}
+
+      	/* Footer left */
+
+      	.footer-distributed .footer-left{
+      		width: 40%;
+      	}
+
+      	/* The company logo */
+
+      	.footer-distributed h3{
+      		color:  #ffffff;
+      		font: normal 36px 'Cookie', cursive;
+      		margin: 0;
+      	}
+
+      	.footer-distributed h3 span{
+      		color:  #5383d3;
+      	}
+
+      	/* Footer links */
+
+      	.footer-distributed .footer-links{
+      		color:  #ffffff;
+      		margin: 20px 0 12px;
+      		padding: 0;
+      	}
+
+      	.footer-distributed .footer-links a{
+      		display:inline-block;
+      		line-height: 1.8;
+      		text-decoration: none;
+      		color:  inherit;
+      	}
+
+      	.footer-distributed .footer-company-name{
+      		color:  #8f9296;
+      		font-size: 14px;
+      		font-weight: normal;
+      		margin: 0;
+      	}
+
+      	/* Footer Center */
+
+      	.footer-distributed .footer-center{
+      		width: 35%;
+      	}
+
+      	.footer-distributed .footer-center i{
+      		background-color:  #33383b;
+      		color: #ffffff;
+      		font-size: 25px;
+      		width: 38px;
+      		height: 38px;
+      		border-radius: 50%;
+      		text-align: center;
+      		line-height: 42px;
+      		margin: 10px 15px;
+      		vertical-align: middle;
+      	}
+
+      	.footer-distributed .footer-center i.fa-envelope{
+      		font-size: 17px;
+      		line-height: 38px;
+      	}
+
+      	.footer-distributed .footer-center p{
+      		display: inline-block;
+      		color: #ffffff;
+      		vertical-align: middle;
+      		margin:0;
+      	}
+
+      	.footer-distributed .footer-center p span{
+      		display:block;
+      		font-weight: normal;
+      		font-size:14px;
+      		line-height:2;
+      	}
+
+      	.footer-distributed .footer-center p a{
+      		color:  #5383d3;
+      		text-decoration: none;;
+      	}
+
+
+
+        .footer-distributed .footer-center{
+          width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+          background-color:  #33383b;
+          color: #ffffff;
+          font-size: 25px;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 42px;
+          margin: 10px 15px;
+          vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+          font-size: 17px;
+          line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p{
+          display: inline-block;
+          color: #ffffff;
+          vertical-align: middle;
+          margin:0;
+        }
+
+        .footer-distributed .footer-center p span{
+          display:block;
+          font-weight: normal;
+          font-size:14px;
+          line-height:2;
+        }
+
+        .footer-distributed .footer-center p a{
+          color:  #5383d3;
+          text-decoration: none;;
+        }
+
+
+
+
+
+
+      	/* Footer Right */
+
+
+
+          	.footer-distributed .footer-right{
+          		width: 35%;
+          	}
+
+          	.footer-distributed .footer-right i{
+          		background-color:  #33383b;
+          		color: #ffffff;
+          		font-size: 25px;
+          		width: 38px;
+          		height: 38px;
+          		border-radius: 50%;
+          		text-align: center;
+          		line-height: 42px;
+          		margin: 10px 15px;
+          		vertical-align: middle;
+          	}
+
+          	.footer-distributed .footer-right i.fa-envelope{
+          		font-size: 17px;
+          		line-height: 38px;
+          	}
+
+          	.footer-distributed .footer-right p{
+          		display: inline-block;
+          		color: #ffffff;
+          		vertical-align: middle;
+          		margin:0;
+          	}
+
+          	.footer-distributed .footer-right p span{
+          		display:block;
+          		font-weight: normal;
+          		font-size:14px;
+          		line-height:2;
+          	}
+
+          	.footer-distributed .footer-right p a{
+          		color:  #5383d3;
+          		text-decoration: none;;
+          	}
+
+
+
+            .footer-distributed .footer-right{
+              width: 35%;
+            }
+
+            .footer-distributed .footer-right i{
+              background-color:  #33383b;
+              color: #ffffff;
+              font-size: 25px;
+              width: 38px;
+              height: 38px;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 42px;
+              margin: 10px 15px;
+              vertical-align: middle;
+            }
+
+            .footer-distributed .footer-right i.fa-envelope{
+              font-size: 17px;
+              line-height: 38px;
+            }
+
+            .footer-distributed .footer-right p{
+              display: inline-block;
+              color: #ffffff;
+              vertical-align: middle;
+              margin:0;
+            }
+
+            .footer-distributed .footer-right p span{
+              display:block;
+              font-weight: normal;
+              font-size:14px;
+              line-height:2;
+            }
+
+            .footer-distributed .footer-right p a{
+              color:  #5383d3;
+              text-decoration: none;;
+            }
+
+
+
+
+
+
+
+
+
+
+      	.footer-distributed .footer-right{
+      		width: 20%;
+      	}
+
+      	.footer-distributed .footer-company-about{
+      		line-height: 20px;
+      		color:  #92999f;
+      		font-size: 13px;
+      		font-weight: normal;
+      		margin: 0;
+      	}
+
+      	.footer-distributed .footer-company-about span{
+      		display: block;
+      		color:  #ffffff;
+      		font-size: 14px;
+      		font-weight: bold;
+      		margin-bottom: 20px;
+      	}
+
+      	.footer-distributed .footer-icons{
+      		margin-top: 25px;
+      	}
+
+      	/* If you don't want the footer to be responsive, remove these media queries */
+
+      	@media (max-width: 880px) {
+
+      		.footer-distributed{
+      			font: bold 14px sans-serif;
+      		}
+
+      		.footer-distributed .footer-left,
+      		.footer-distributed .footer-center,
+      		.footer-distributed .footer-right{
+      			display: block;
+      			width: 100%;
+      			margin-bottom: 40px;
+      			text-align: center;
+      		}
+
+      		.footer-distributed .footer-center i{
+      			margin-left: 0;
+      		}
+
+
+      	}
+
+      	</style>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="navlogo" class="navbar-brand" href="/shopping/" style="font-family: 'Oswald', sans-serif;" >
+        <img src="{% static "images\bglogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="image unavailables">
+        BG AUTOS
+      </a>
+    <ul class="navbar-nav mr-auto ">
+
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/shopping/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/tracker/">Tracking <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="/invoice/">Invoice <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="">About Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="/contact/">Contact  Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/accounts">Account</a>
+              <a class="dropdown-item" href="#">Orders</a>
+              <div class="dropdown-divider"></div>
+              <form method="POST" action="/logout">
+                  <div class="container mx-2">
+                    {% csrf_token %}
+                    <button type="submit" value="Logout" class="btn btn-danger align-center">Logout</button>
+
+                  </div>
+
+              </form>
+            </div>
+          </li>
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+      <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+    sagittis lacus vel augue laoreet rutrum faucibus.">
+
+
+      Cart(<span id="cart">0</span>)
+    </button>
+    </nav>
+
+
+
+
+
+                    <div class="container align">
+                      <div class ="jumbotron ">
+
+                        <h1 style="margin-top:-25px; margin-bottom:20px" >Feedback</h1>
+
+                        <form method="POST" action="">
+
+                              <div class="form-group">
+
+                        <form action="{% url 'index' %}" method="POST">
+                          {% csrf_token %}
+
+
+                                      <label for="name">Name:</label>
+                                      <input type=name name="name" class="form-control" id="name" style="border: 2px solid #3498db;  border-radius: 25px " placeholder="Enter your name here" >
+
+
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="cusername" class="form-control" id="email" style="border: 2px solid #3498db;  border-radius: 25px " placeholder="Enter your E-mail here" >
+
+                                    <label for="phone">Contact No:</label>
+                                    <input type="number" name="phone" class="form-control" id="phone" style="border: 2px solid #3498db;  border-radius: 25px " placeholder="Enter your phone no" >
+
+                                    <label for="feedback">Feedback:</label>
+                                    <textarea class="form-control" name="message" id="message" rows="10" cols="30" placeholder="Enter your feedback." style="border: 2px solid #3498db;  border-radius: 25px " ></textarea>
+
+                                <div class="login">
+                                  <button type="submit" class="btn btn-success" style="border-radius: 25px; width:50%;" >Submit</button>
+                                </div>
+
+
+                          </form>
+
+                          </form>
+</div>
+
+                          </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+  </body>
+</html>

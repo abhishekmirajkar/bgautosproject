@@ -1,0 +1,714 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+  </head>
+  <body>
+  {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="navlogo" class="navbar-brand" href="/index" style="font-family: 'Oswald', sans-serif;" >
+        <img src="{% static "images\bglogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="image unavailables">
+        BG AUTOS
+      </a>
+    <ul class="navbar-nav mr-auto ">
+
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/login/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/tracker/">Tracking <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="/invoice/">Invoice <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="/contact/">Contact  Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/accounts">Account</a>
+              <a class="dropdown-item" href="#">Orders</a>
+              <div class="dropdown-divider"></div>
+              <form method="POST" action="/logout">
+                  <div class="container mx-2">
+                    {% csrf_token %}
+                    <button type="submit" value="Logout" class="btn btn-danger align-center">Logout</button>
+
+                  </div>
+
+              </form></a>
+            </div>
+          </li>
+
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search' value="{{request.GET.search}}">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+
+
+    </nav>
+    	<style media="screen">
+    	.footer-distributed{
+    		background-color: #292c2f;
+    		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    		box-sizing: border-box;
+    		width: 100%;
+    		text-align: left;
+    		font: bold 16px sans-serif;
+
+    		padding: 55px 50px;
+    		margin-top: 80px;
+    	}
+
+    	.footer-distributed .footer-left,
+    	.footer-distributed .footer-center,
+    	.footer-distributed .footer-right{
+    		display: inline-block;
+    		vertical-align: top;
+    	}
+
+    	/* Footer left */
+
+    	.footer-distributed .footer-left{
+    		width: 40%;
+    	}
+
+    	/* The company logo */
+
+    	.footer-distributed h3{
+    		color:  #ffffff;
+    		font: normal 36px 'Cookie', cursive;
+    		margin: 0;
+    	}
+
+    	.footer-distributed h3 span{
+    		color:  #5383d3;
+    	}
+
+    	/* Footer links */
+
+    	.footer-distributed .footer-links{
+    		color:  #ffffff;
+    		margin: 20px 0 12px;
+    		padding: 0;
+    	}
+
+    	.footer-distributed .footer-links a{
+    		display:inline-block;
+    		line-height: 1.8;
+    		text-decoration: none;
+    		color:  inherit;
+    	}
+
+    	.footer-distributed .footer-company-name{
+    		color:  #8f9296;
+    		font-size: 14px;
+    		font-weight: normal;
+    		margin: 0;
+    	}
+
+    	/* Footer Center */
+
+    	.footer-distributed .footer-center{
+    		width: 35%;
+    	}
+
+    	.footer-distributed .footer-center i{
+    		background-color:  #33383b;
+    		color: #ffffff;
+    		font-size: 25px;
+    		width: 38px;
+    		height: 38px;
+    		border-radius: 50%;
+    		text-align: center;
+    		line-height: 42px;
+    		margin: 10px 15px;
+    		vertical-align: middle;
+    	}
+
+    	.footer-distributed .footer-center i.fa-envelope{
+    		font-size: 17px;
+    		line-height: 38px;
+    	}
+
+    	.footer-distributed .footer-center p{
+    		display: inline-block;
+    		color: #ffffff;
+    		vertical-align: middle;
+    		margin:0;
+    	}
+
+    	.footer-distributed .footer-center p span{
+    		display:block;
+    		font-weight: normal;
+    		font-size:14px;
+    		line-height:2;
+    	}
+
+    	.footer-distributed .footer-center p a{
+    		color:  #5383d3;
+    		text-decoration: none;;
+    	}
+
+
+
+      .footer-distributed .footer-center{
+        width: 35%;
+      }
+
+      .footer-distributed .footer-center i{
+        background-color:  #33383b;
+        color: #ffffff;
+        font-size: 25px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 42px;
+        margin: 10px 15px;
+        vertical-align: middle;
+      }
+
+      .footer-distributed .footer-center i.fa-envelope{
+        font-size: 17px;
+        line-height: 38px;
+      }
+
+      .footer-distributed .footer-center p{
+        display: inline-block;
+        color: #ffffff;
+        vertical-align: middle;
+        margin:0;
+      }
+
+      .footer-distributed .footer-center p span{
+        display:block;
+        font-weight: normal;
+        font-size:14px;
+        line-height:2;
+      }
+
+      .footer-distributed .footer-center p a{
+        color:  #5383d3;
+        text-decoration: none;;
+      }
+
+
+
+
+
+
+    	/* Footer Right */
+
+
+
+        	.footer-distributed .footer-right{
+        		width: 35%;
+        	}
+
+        	.footer-distributed .footer-right i{
+        		background-color:  #33383b;
+        		color: #ffffff;
+        		font-size: 25px;
+        		width: 38px;
+        		height: 38px;
+        		border-radius: 50%;
+        		text-align: center;
+        		line-height: 42px;
+        		margin: 10px 15px;
+        		vertical-align: middle;
+        	}
+
+        	.footer-distributed .footer-right i.fa-envelope{
+        		font-size: 17px;
+        		line-height: 38px;
+        	}
+
+        	.footer-distributed .footer-right p{
+        		display: inline-block;
+        		color: #ffffff;
+        		vertical-align: middle;
+        		margin:0;
+        	}
+
+        	.footer-distributed .footer-right p span{
+        		display:block;
+        		font-weight: normal;
+        		font-size:14px;
+        		line-height:2;
+        	}
+
+        	.footer-distributed .footer-right p a{
+        		color:  #5383d3;
+        		text-decoration: none;;
+        	}
+
+
+
+          .footer-distributed .footer-right{
+            width: 35%;
+          }
+
+          .footer-distributed .footer-right i{
+            background-color:  #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+          }
+
+          .footer-distributed .footer-right i.fa-envelope{
+            font-size: 17px;
+            line-height: 38px;
+          }
+
+          .footer-distributed .footer-right p{
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin:0;
+          }
+
+          .footer-distributed .footer-right p span{
+            display:block;
+            font-weight: normal;
+            font-size:14px;
+            line-height:2;
+          }
+
+          .footer-distributed .footer-right p a{
+            color:  #5383d3;
+            text-decoration: none;;
+          }
+
+
+
+
+
+
+
+
+
+
+    	.footer-distributed .footer-right{
+    		width: 20%;
+    	}
+
+    	.footer-distributed .footer-company-about{
+    		line-height: 20px;
+    		color:  #92999f;
+    		font-size: 13px;
+    		font-weight: normal;
+    		margin: 0;
+    	}
+
+    	.footer-distributed .footer-company-about span{
+    		display: block;
+    		color:  #ffffff;
+    		font-size: 14px;
+    		font-weight: bold;
+    		margin-bottom: 20px;
+    	}
+
+    	.footer-distributed .footer-icons{
+    		margin-top: 25px;
+    	}
+
+    	/* If you don't want the footer to be responsive, remove these media queries */
+
+    	@media (max-width: 880px) {
+
+    		.footer-distributed{
+    			font: bold 14px sans-serif;
+    		}
+
+    		.footer-distributed .footer-left,
+    		.footer-distributed .footer-center,
+    		.footer-distributed .footer-right{
+    			display: block;
+    			width: 100%;
+    			margin-bottom: 40px;
+    			text-align: center;
+    		}
+
+    		.footer-distributed .footer-center i{
+    			margin-left: 0;
+    		}
+
+
+    	}
+
+    	</style>
+
+
+
+  <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+
+
+
+    <form action="" method="POST">
+      {% csrf_token %}
+
+
+
+
+
+
+      <div >
+        <div class="jumbotron col my-4 ">
+
+
+
+
+          <h2>Enter your Order Id and E-mail to fetch invoice.</h2>
+
+
+
+          <div class="form-group col-md-6">
+            <label for="inputname">Email*</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+
+          </div>
+            <div class="form-group col-md-6">
+              <label for="inputname">Order Id*</label>
+              <input type="text" class="form-control" id="orderIid" name="orderid" placeholder="Order Id">
+              <br>
+              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+              <br>
+              <br>
+              <input class="btn btn-primary" type="button" id="create_pdf" value="Download invoice as PDF">
+
+            </div>
+
+
+        </div>
+      </div>
+          </form>
+
+
+    <form class="form" style="max-width: none; ">
+
+
+
+
+
+        <div class="">
+
+{% for i in odata %}
+<p>
+   <h1 >BG AUTOS</h1>
+   Date : {{i.orderdate}}
+   <br>
+  Invoice no. {{ i.order_id }}</br>
+  <span class="secondary">
+    {{ order.created|date:"M d, Y" }}
+  </span>
+</p>
+
+
+<p>
+  {{ i.name }}<br>
+  {{ i.email }}<br>
+  {{ i.address }}<br>
+  {{ i.address1 }}<br>
+  {{ i.state }}<br>
+  {{ i.city }}<br>
+  {{ i.zip_code }}<br>
+</p>
+
+<h3>Items bought</h3>
+<table>
+
+  <tbody>
+
+      {% for item in odata %}
+      <div class="jsondata" >
+        <input class="jsondata" type="hidden" id="jsondata"name="jsondata" value="{{item.items_json}}">
+
+      </div>
+       {% endfor %}
+
+  </tbody>
+
+</table>
+
+
+
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quanty</th>
+          <th scope="col">Cost</th>
+        </tr>
+      </thead>
+      <tbody id="invoiceitems">
+
+
+      </tbody>
+
+
+            <tr class="total">
+              <td colspan="3">Total</td>
+              <td class="num">Rs.{{i.total}}</td>
+            </tr>
+    </table>
+
+
+    {% endfor %}
+
+
+</div>
+
+
+
+
+
+
+
+    </form>
+
+
+
+        		<footer class="footer-distributed" >
+
+        			<div class="footer-left">
+                  <h3 style="font-family: 'Oswald', sans-serif;" >BG AUTOS</h3>
+
+
+        				<p class="footer-links">
+        					<a href="/shopping/">Home</a>
+        					·
+        					<a href="/tracker/">Tracking</a>
+        					·
+        					<a href="/invoice/">Invoice</a>
+
+        				</p>
+
+        				<p class="footer-company-name">BGAUTOS &copy; 2019</p>
+        			</div>
+
+        			<div class="footer-center">
+
+        				<div>
+        					<i class="fa fa-map-marker"></i>
+        					<p><span>Anand Arcade, Maratha Colony Road, Shivaji Circle, </span>Maratha Colony, Dharwad - 580008, Opp.KVG Bank</p>
+        				</div>
+
+
+
+
+
+        			</div>
+
+        			<div class="footer-right">
+                <div>
+                  <i class="fa fa-phone"></i>
+                  <p>+918362746580</p>
+
+                </div>
+
+
+
+                            				<div>
+                            					<i class="fa fa-phone"></i>
+                            					<p>+919964329454</p>
+
+                            				</div>
+
+                                    <div>
+                            					<i class="fa fa-envelope"></i>
+                            					<p><a href="mailto:support@company.com">bgautos0@gmail.com</a></p>
+                            				</div>
+
+
+        			</div>
+        			<div class="container " style="" >
+
+        				<iframe frameborder="0" style="border:0; height: 240px;
+        						    width: 100%;
+        						    margin-top: 30px;
+        						    margin-bottom: 10px;"
+        						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.473107675962!2d75.00557388601463!3d15.458963589260476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8cd70176844d5%3A0xaccd35d434a2775f!2sB+G+Autos!5e0!3m2!1sen!2sin!4v1552497133525"  >
+        				</iframe>
+
+        			</div>
+
+    </footer>
+
+  </body>
+</html>
+
+
+<script>
+
+
+var form = document.getElementById("jsondata").value;
+jsonn = JSON.parse(form);
+
+console.log(jsonn);
+total_bill=0;
+sun=0;
+ for (item in jsonn) {
+     let name = jsonn[item][1];
+     let qty = jsonn[item][0];
+     let price = jsonn[item][2];
+     total_bill = jsonn[item][2] * qty;
+
+     mystr =
+     `<tr>
+     <td class="num">${name}</td>
+     <td class="num">Rs. ${price} </td>
+     <td class="num">  ${qty} </td>
+     <td class="num">Rs.${total_bill}</td> </tr>`
+     $('#invoiceitems').append(mystr);
+ }
+
+    (function () {
+        var
+         form = $('.form'),
+         cache_width = form.width(),
+         a4 = [895.28, 841.89]; // for a4 size paper width and height
+
+        $('#create_pdf').on('click', function () {
+            $('body').scrollTop(0);
+            createPDF();
+        });
+        //create pdf
+        function createPDF() {
+            getCanvas().then(function (canvas) {
+                var
+                 img = canvas.toDataURL("image/png"),
+                 doc = new jsPDF({
+                     unit: 'px',
+                     format: 'a4'
+                 });
+                doc.addImage(img, 'JPEG', 20, 20);
+                doc.save('Invoice.pdf');
+                form.width(cache_width);
+            });
+        }
+
+        // create canvas object
+        function getCanvas() {
+            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+            return html2canvas(form, {
+                imageTimeout: 2000,
+                removeContainer: true
+            });
+        }
+
+    }());
+</script>
+<script>
+    /*
+ * jQuery helper plugin for examples and tests
+ */
+
+
+    (function ($) {
+        $.fn.html2canvas = function (options) {
+            var date = new Date(),
+            $message = null,
+            timeoutTimer = false,
+            timer = date.getTime();
+            html2canvas.logging = options && options.logging;
+            html2canvas.Preload(this[0], $.extend({
+                complete: function (images) {
+                    var queue = html2canvas.Parse(this[0], images, options),
+                    $canvas = $(html2canvas.Renderer(queue, options)),
+                    finishTime = new Date();
+
+                    $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+                    $canvas.siblings().toggle();
+
+                    $(window).click(function () {
+                        if (!$canvas.is(':visible')) {
+                            $canvas.toggle().siblings().toggle();
+                            throwMessage("Canvas Render visible");
+                        } else {
+                            $canvas.siblings().toggle();
+                            $canvas.toggle();
+                            throwMessage("Canvas Render hidden");
+                        }
+                    });
+                    throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+                }
+            }, options));
+
+            function throwMessage(msg, duration) {
+                window.clearTimeout(timeoutTimer);
+                timeoutTimer = window.setTimeout(function () {
+                    $message.fadeOut(function () {
+                        $message.remove();
+                    });
+                }, duration || 2000);
+                if ($message)
+                    $message.remove();
+                $message = $('<div ></div>').html(msg).css({
+                    margin: 0,
+                    padding: 10,
+                    background: "#000",
+                    opacity: 0.7,
+                    position: "fixed",
+                    top: 10,
+                    right: 10,
+                    fontFamily: 'Tahoma',
+                    color: '#fff',
+                    fontSize: 12,
+                    borderRadius: 12,
+                    width: 'auto',
+                    height: 'auto',
+                    textAlign: 'center',
+                    textDecoration: 'none'
+                }).hide().fadeIn().appendTo('body');
+            }
+        };
+    })(jQuery);
+
+</script>
